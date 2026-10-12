@@ -1,0 +1,2 @@
+import { api } from './api'; import type { Entry,EntryInput } from '../types';
+export const entries = { list: (path:string)=>api.get<Entry[]>(`/${path}`).then(r=>r.data), create:(path:string,data:EntryInput)=>api.post<Entry>(`/${path}`,data).then(r=>r.data), update:(path:string,id:number,data:EntryInput)=>api.put<Entry>(`/${path}/${id}`,data).then(r=>r.data), remove:(path:string,id:number)=>api.delete(`/${path}/${id}`) };

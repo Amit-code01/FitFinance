@@ -1,0 +1,3 @@
+import { api } from './api'; import type { AuthResponse } from '../types';
+export const authenticate=async(path:'register'|'login',data:Record<string,string>)=>{const {data:result}=await api.post<AuthResponse>(`/auth/${path}`,data);localStorage.setItem('fitfinance-token',result.token);localStorage.setItem('fitfinance-user',JSON.stringify(result));return result;};
+export const continueAsGuest=async()=>{const {data:result}=await api.post<AuthResponse>('/auth/guest');localStorage.setItem('fitfinance-token',result.token);localStorage.setItem('fitfinance-user',JSON.stringify(result));return result;};

@@ -1,0 +1,3 @@
+package com.fitfinance.controller;
+import com.fitfinance.dto.AuthDtos.*;import com.fitfinance.service.AuthService;import jakarta.validation.Valid;import org.springframework.web.bind.annotation.*;
+@RestController @RequestMapping("/api/auth") public class AuthController {private final AuthService service;public AuthController(AuthService service){this.service=service;}@PostMapping("/register")public AuthResponse register(@Valid @RequestBody RegisterRequest r){return service.register(r);}@PostMapping("/login")public AuthResponse login(@Valid @RequestBody LoginRequest r){return service.login(r);}@PostMapping("/guest")public AuthResponse guest(){return service.guest();}}
