@@ -9,3 +9,5 @@ backend/target/
 .vscode/
 *.log
 *.tsbuildinfo
+
+backend/maven-error.txt
